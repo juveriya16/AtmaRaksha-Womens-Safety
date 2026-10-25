@@ -72,37 +72,37 @@ Make sure shared files are accessible to anyone with the link before submitting.
 ## 🖼️ Screenshots
 
 ### Welcome Screen
-<img src="screenshots/welcome-screen.jpeg" alt="Welcome Screen" width="300"/>
+<img src="screenshots/welcome-screen.jpeg" alt="AtmaRaksha Welcome Screen" width="220"/>
 
 ### Login Screen
-<img src="screenshots/login-screen.jpeg" alt="Login Screen" width="300"/>
+<img src="screenshots/login-screen.jpeg" alt="AtmaRaksha Login Screen" width="220"/>
 
 ### Home Dashboard
-<img src="screenshots/home-dashboard.jpeg" alt="Home Dashboard" width="300"/>
+<img src="screenshots/home-dashboard.jpeg" alt="AtmaRaksha Home Dashboard" width="220"/>
 
 ### Safety Services
-<img src="screenshots/safety-services.jpeg" alt="Safety Services" width="300"/>
+<img src="screenshots/safety-services.jpeg" alt="AtmaRaksha Safety Services" width="220"/>
 
 ### Safety History
-<img src="screenshots/safety-history.jpeg" alt="Safety History" width="300"/>
+<img src="screenshots/safety-history.jpeg" alt="AtmaRaksha Safety History" width="220"/>
 
 ### Safe Routes Map
-<img src="screenshots/safe-routes-map.jpeg" alt="Safe Routes Map" width="300"/>
+<img src="screenshots/safe-routes-map.jpeg" alt="AtmaRaksha Safe Routes Map" width="220"/>
 
 ### Profile and Settings
-<img src="screenshots/profile-settings.png" alt="Profile and Settings" width="300"/>
+<img src="screenshots/profile-settings.png" alt="AtmaRaksha Profile and Settings" width="220"/>
 
 ### Fake Incoming Call
-<img src="screenshots/fake-incoming-call.jpeg" alt="Fake Incoming Call" width="300"/>
+<img src="screenshots/fake-incoming-call.jpeg" alt="AtmaRaksha Fake Incoming Call" width="220"/>
 
 ### Trusted Emergency Contacts
-<img src="screenshots/trusted-emergency-contacts.png" alt="Trusted Emergency Contacts" width="300"/>
+<img src="screenshots/trusted-emergency-contacts.png" alt="AtmaRaksha Trusted Emergency Contacts" width="220"/>
 
 ### Community Safety Reports
-<img src="screenshots/community-safety-reports.jpeg" alt="Community Safety Reports" width="300"/>
+<img src="screenshots/community-safety-reports.jpeg" alt="AtmaRaksha Community Safety Reports" width="220"/>
 
 ### Emergency SOS Alert
-<img src="screenshots/emergency-sos-alert.jpeg" alt="Emergency SOS Alert" width="300"/>
+<img src="screenshots/emergency-sos-alert.jpeg" alt="AtmaRaksha Emergency SOS Alert" width="220"/>
 
 ## 🏗️ Project Structure
 
