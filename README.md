@@ -64,7 +64,7 @@ AtmaRaksha is distributed as an **APK for testing and demonstration**. It is not
 
 - **GitHub Repository:** [AtmaRaksha-Womens-Safety](https://github.com/juveriya16/AtmaRaksha-Womens-Safety)
 - **Demo Video:** Add your demo video link here.
-- **Project Presentation:** Add your presentation link here.
+- **Project Presentation:** (https://docs.google.com/presentation/d/1p34_R2ebDvWLOe6LmrrXoxK9prBLJBln/edit?usp=drive_link&ouid=101429881028364606304&rtpof=true&sd=true)
 - **APK Download:** Add your APK link here if hosted.
 
 Make sure shared files are accessible to anyone with the link before submitting.
