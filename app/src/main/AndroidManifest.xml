@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.microphone"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name="com.sum.ladybuddy.AboutUs"
+            android:exported="false"
+            android:label="AboutUs"
+            android:parentActivityName="com.sum.ladybuddy.MainActivity"
+            android:theme="@style/Theme.New" />
+
+        <activity
+            android:name="com.sum.ladybuddy.Helpline"
+            android:exported="false"
+            android:label="Helpline Numbers"
+            android:parentActivityName="com.sum.ladybuddy.MainActivity"
+            android:theme="@style/Theme.New" />
+
+        <activity
+            android:name="com.sum.ladybuddy.SelfDef"
+            android:exported="false"
+            android:label="Self Defence"
+            android:parentActivityName="com.sum.ladybuddy.MainActivity"
+            android:theme="@style/Theme.New" />
+
+        <activity
+            android:name="com.sum.ladybuddy.MagBtnInst"
+            android:exported="false"
+            android:label="Detailed Instructions"
+            android:parentActivityName="com.sum.ladybuddy.Magnetometer"
+            android:theme="@style/Theme.New"/>
+
+        <activity
+            android:name="com.sum.ladybuddy.SosInsructionsActivity"
+            android:exported="false"
+            android:label="SOS Instructions"
+            android:parentActivityName="com.sum.ladybuddy.SmsActivity"
+            android:theme="@style/Theme.New" />
+
+        <activity
+            android:name="com.sum.ladybuddy.Magnetometer"
+            android:exported="false"
+            android:label="Spy Camera Dectector"
+            android:parentActivityName="com.sum.ladybuddy.ChoosenActivity"
+            android:theme="@style/Theme.New" />
+
+        <activity
+            android:name="com.sum.ladybuddy.MagnoInst"
+            android:exported="false"
+            android:label="Manual Detection"
+            android:parentActivityName="com.sum.ladybuddy.ChoosenActivity"
+            android:theme="@style/Theme.New" />
+
+        <activity
+            android:name="com.sum.ladybuddy.Outside"
+            android:exported="false"
+            android:label="Outside Instructions"
+            android:parentActivityName="com.sum.ladybuddy.MagnoInst"
+            android:theme="@style/Theme.New"/>
+
+        <activity
+            android:name="com.sum.ladybuddy.ChangingRoom"
+            android:exported="false"
+            android:label="ChangingRoom Instructions"
+            android:parentActivityName="com.sum.ladybuddy.MagnoInst"
+            android:theme="@style/Theme.New"/>
+
+        <activity
+            android:name="com.sum.ladybuddy.Bedroom"
+            android:exported="false"
+            android:label="Bedroom Instructions"
+            android:parentActivityName="com.sum.ladybuddy.MagnoInst"
+            android:theme="@style/Theme.New"/>
+
+        <activity
+            android:name="com.sum.ladybuddy.Bathroom"
+            android:exported="false"
+            android:label="Bathroom Instructions"
+            android:parentActivityName="com.sum.ladybuddy.MagnoInst"
+            android:theme="@style/Theme.New"/>
+
+        <activity
+            android:name="com.sum.ladybuddy.ChoosenActivity"
+            android:exported="false"
+            android:label="Detect Hidden Cameras"
+            android:parentActivityName="com.sum.ladybuddy.MainActivity"
+            android:theme="@style/Theme.New" />
+
+        <activity
+            android:name="com.sum.ladybuddy.NewsActivity"
+            android:exported="false"
+            android:label="Women's News"
+            android:parentActivityName="com.sum.ladybuddy.MainActivity"
+            android:theme="@style/Theme.New" />
+
+        <activity android:name="com.sum.ladybuddy.webactivity" android:exported="false" />
+
+        <activity
+            android:name="com.sum.ladybuddy.SmsActivity"
+            android:exported="false"
+            android:label="Emergency Service"
+            android:parentActivityName="com.sum.ladybuddy.MainActivity"
+            android:theme="@style/Theme.New" />
+
+        <activity
+            android:name="com.sum.ladybuddy.LocationTrace"
+            android:exported="false"
+            android:label="Source to Destination"
+            android:parentActivityName="com.sum.ladybuddy.MainActivity"
+            android:theme="@style/Theme.New" />
+
+        <activity android:name="com.sum.ladybuddy.Flashing" android:exported="false" />
+
+        <activity android:name="com.sum.ladybuddy.SplashActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.sum.ladybuddy.MainActivity" android:exported="false" />
+
+        <!-- New Redesigned AtmaRaksha Activities -->
+        <activity
+            android:name="com.sum.ladybuddy.WelcomeActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.sum.ladybuddy.LoginActivity"
+            android:exported="false"
+            android:parentActivityName="com.sum.ladybuddy.WelcomeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.sum.ladybuddy.SignUpActivity"
+            android:exported="false"
+            android:parentActivityName="com.sum.ladybuddy.WelcomeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.sum.ladybuddy.SafeRouteActivity"
+            android:exported="false"
+            android:parentActivityName="com.sum.ladybuddy.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.sum.ladybuddy.NearbyHelpActivity"
+            android:exported="false"
+            android:parentActivityName="com.sum.ladybuddy.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.sum.ladybuddy.SosEmergencyActivity"
+            android:exported="false"
+            android:parentActivityName="com.sum.ladybuddy.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.sum.ladybuddy.TrustedContactsActivity"
+            android:exported="false"
+            android:parentActivityName="com.sum.ladybuddy.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.sum.ladybuddy.SafetyHistoryActivity"
+            android:exported="false"
+            android:parentActivityName="com.sum.ladybuddy.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.sum.ladybuddy.ProfileSettingsActivity"
+            android:exported="false"
+            android:parentActivityName="com.sum.ladybuddy.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.sum.ladybuddy.PrivacyPolicyActivity"
+            android:exported="false"
+            android:parentActivityName="com.sum.ladybuddy.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <receiver android:name="com.sum.ladybuddy.ScreenOnOffReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_OFF" />
+                <action android:name="android.intent.action.SCREEN_ON" />
+                <action android:name="number.action.string" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.sum.ladybuddy.ScreenOnOffBackgroundService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <!-- Journey Monitoring Foreground Service -->
+        <service
+            android:name="com.sum.ladybuddy.JourneyMonitoringService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="location" />
+
+
+        <!-- Secure FileProvider for Audio Evidence Sharing -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!-- New Dynamic Safety Activities -->
+        <activity
+            android:name="com.sum.ladybuddy.JourneyMonitoringActivity"
+            android:exported="false"
+            android:parentActivityName="com.sum.ladybuddy.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.sum.ladybuddy.VoiceSosActivity"
+            android:exported="false"
+            android:parentActivityName="com.sum.ladybuddy.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.sum.ladybuddy.OfflineSafetyActivity"
+            android:exported="false"
+            android:parentActivityName="com.sum.ladybuddy.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.sum.ladybuddy.CommunityReportsActivity"
+            android:exported="false"
+            android:parentActivityName="com.sum.ladybuddy.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.sum.ladybuddy.EvidenceRecordingActivity"
+            android:exported="false"
+            android:parentActivityName="com.sum.ladybuddy.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.sum.ladybuddy.DiscreetModeActivity"
+            android:exported="false"
+            android:parentActivityName="com.sum.ladybuddy.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <!-- Feature 2: Simulated Fake Incoming Decoy Call -->
+        <activity
+            android:name="com.sum.ladybuddy.FakeCallActivity"
+            android:exported="false"
+            android:showWhenLocked="true"
+            android:turnScreenOn="true"
+            android:parentActivityName="com.sum.ladybuddy.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <receiver
+            android:name="com.sum.ladybuddy.FakeCallReceiver"
+            android:exported="false" />
+
+    </application>
+</manifest>

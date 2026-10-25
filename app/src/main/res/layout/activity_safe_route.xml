@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_safe_route"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface_background"
+    android:fitsSystemWindows="true">
+
+    <!-- Scrollable Content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_safe_route"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_nav_include"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingBottom="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Top Header Banner (SheRoute style) -->
+            <RelativeLayout
+                android:id="@+id/header_safe_route"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_header_gradient"
+                android:paddingStart="20dp"
+                android:paddingTop="28dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="22dp">
+
+                <ImageView
+                    android:id="@+id/btn_back_safe_route"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_arrow_back"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:id="@+id/tv_header_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="Route Safety Preview"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/poppins_bold" />
+
+                <!-- Night Mode Toggle Pill -->
+                <LinearLayout
+                    android:id="@+id/btn_toggle_night_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/bg_pill_button_lavender"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp">
+
+                    <TextView
+                        android:id="@+id/tv_night_toggle_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🌙 Night"
+                        android:textColor="@color/brand_purple"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/poppins_medium" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_header_subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_header_title"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="3dp"
+                    android:text="Review the safety of your route before starting your journey"
+                    android:textColor="@color/brand_lavender"
+                    android:textSize="11sp"
+                    app:fontFamily="@font/poppins" />
+
+            </RelativeLayout>
+
+            <!-- Route Summary Card (SheRoute reference screenshot: Maple Lane -> Station Road, 20 min • 1.5 km) -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_route_summary"
+                style="@style/Widget.AtmaRaksha.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <!-- Origin -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <View
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:background="@drawable/bg_pill_button_pink" />
+
+                                <EditText
+                                    android:id="@+id/et_route_source"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:background="@null"
+                                    android:hint="Start: Maple Lane (Current GPS)"
+                                    android:textColor="@color/text_primary"
+                                    android:textColorHint="@color/text_secondary"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    app:fontFamily="@font/poppins_bold" />
+                            </LinearLayout>
+
+                            <!-- Vertical route connector -->
+                            <View
+                                android:layout_width="2dp"
+                                android:layout_height="14dp"
+                                android:layout_marginStart="3dp"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginBottom="2dp"
+                                android:background="@color/card_border" />
+
+                            <!-- Destination -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <View
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:background="@drawable/bg_pill_button_purple" />
+
+                                <EditText
+                                    android:id="@+id/et_route_destination"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:background="@null"
+                                    android:hint="Destination: Station Road"
+                                    android:text="Station Road"
+                                    android:textColor="@color/text_primary"
+                                    android:textColorHint="@color/text_secondary"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    app:fontFamily="@font/poppins_bold" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!-- Trip Stats Badge -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:background="@drawable/bg_pill_button_lavender"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingStart="12dp"
+                            android:paddingTop="8dp"
+                            android:paddingEnd="12dp"
+                            android:paddingBottom="8dp">
+
+                            <TextView
+                                android:id="@+id/tv_route_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="20 min"
+                                android:textColor="@color/brand_purple"
+                                android:textSize="13sp"
+                                android:textStyle="bold"
+                                app:fontFamily="@font/poppins_bold" />
+
+                            <TextView
+                                android:id="@+id/tv_route_dist"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1.5 km"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="11sp"
+                                app:fontFamily="@font/poppins" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Quick Destination Chips -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/chip_dest_station"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_pill_button_lavender"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingStart="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="4dp"
+                            android:text="Station Road"
+                            android:textColor="@color/brand_purple"
+                            android:textSize="11sp"
+                            app:fontFamily="@font/poppins_medium" />
+
+                        <TextView
+                            android:id="@+id/chip_dest_home"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:background="@drawable/bg_input_box"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingStart="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="4dp"
+                            android:text="Home (Pinewood)"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp"
+                            app:fontFamily="@font/poppins" />
+
+                        <TextView
+                            android:id="@+id/chip_dest_metro"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:background="@drawable/bg_input_box"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingStart="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="4dp"
+                            android:text="Metro Station"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp"
+                            app:fontFamily="@font/poppins" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Real Embedded Google Map View with Dynamic Routes & Legend -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_map_preview"
+                style="@style/Widget.AtmaRaksha.Card"
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <org.osmdroid.views.MapView
+                        android:id="@+id/mapview_safe_route"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <!-- OpenStreetMap Attribution Pill -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_margin="6dp"
+                        android:background="#A0FFFFFF"
+                        android:paddingStart="6dp"
+                        android:paddingTop="2dp"
+                        android:paddingEnd="6dp"
+                        android:paddingBottom="2dp"
+                        android:text="© OpenStreetMap contributors • OSRM"
+                        android:textColor="#333333"
+                        android:textSize="8sp" />
+
+                    <!-- Loading / Route Fetching Indicator -->
+                    <ProgressBar
+                        android:id="@+id/progress_route_loading"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerInParent="true"
+                        android:indeterminateTint="@color/brand_pink"
+                        android:visibility="gone" />
+
+                    <!-- Night Safety Banner Overlay -->
+                    <TextView
+                        android:id="@+id/tv_night_rating_banner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:background="#D0120E24"
+                        android:gravity="center"
+                        android:padding="6dp"
+                        android:text="🌙 Night Safety Mode • Arterial Illuminated Corridors"
+                        android:textColor="@color/color_star_gold"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:visibility="gone"
+                        app:fontFamily="@font/poppins_bold" />
+
+                    <!-- SheRoute Legend Bar (● Recommended Safe ● Alternate Shortcut) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="#EAF8F6FC"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp">
+
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:background="@drawable/bg_pill_button_pink"
+                            android:backgroundTint="@color/brand_purple" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="Route 1 (Safe Corridor)"
+                            android:textColor="@color/text_primary"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/poppins_medium" />
+
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:layout_marginStart="14dp"
+                            android:background="@drawable/bg_pill_button_pink"
+                            android:backgroundTint="@color/color_route_medium" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="Route 2 (Shortcut)"
+                            android:textColor="@color/text_primary"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/poppins_medium" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Route Alternatives Comparison (Route A vs Route B) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal">
+
+                <!-- Route A Card (Recommended) -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_route_opt_a"
+                    style="@style/Widget.AtmaRaksha.Card"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/white"
+                    app:strokeColor="@color/brand_pink"
+                    app:strokeWidth="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_pill_button_pink"
+                            android:paddingStart="6dp"
+                            android:paddingTop="2dp"
+                            android:paddingEnd="6dp"
+                            android:paddingBottom="2dp"
+                            android:text="RECOMMENDED"
+                            android:textColor="@color/white"
+                            android:textSize="9sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Via Main Avenue"
+                            android:textColor="@color/text_primary"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/poppins_bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="20 min • 1.5 km"
+                            android:textColor="@color/brand_purple"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="★ 4.8 Safety Score"
+                            android:textColor="@color/color_route_safe"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Route B Card (Fastest Shortcut) -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_route_opt_b"
+                    style="@style/Widget.AtmaRaksha.Card"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_pill_button_lavender"
+                            android:paddingStart="6dp"
+                            android:paddingTop="2dp"
+                            android:paddingEnd="6dp"
+                            android:paddingBottom="2dp"
+                            android:text="FASTEST"
+                            android:textColor="@color/brand_purple"
+                            android:textSize="9sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Via Alleyway Cut"
+                            android:textColor="@color/text_primary"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/poppins_bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="14 min • 1.1 km"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="★ 3.1 Medium Risk"
+                            android:textColor="@color/color_route_medium"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- Explainable Safety Score Breakdown Card -->
+            <androidx.cardview.widget.CardView
+                style="@style/Widget.AtmaRaksha.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/tv_safety_reasons_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Why Route 1 is Rated 4.8 / 5.0 (Safe):"
+                        android:textColor="@color/brand_purple"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/poppins_bold" />
+
+                    <TextView
+                        android:id="@+id/tv_safety_reasons_body"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:lineSpacingExtra="3dp"
+                        android:text="• 💡 94% continuous streetlight illumination along arterial roads.\n• 🚓 2 verified active Police Patrol Checkpoints along the corridor.\n• 🏪 4 open 24/7 commercial stores and designated safe havens.\n• 👥 Continuous pedestrian activity and CCTV coverage."
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/poppins" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Journey Sharing & Check-in Card -->
+            <androidx.cardview.widget.CardView
+                style="@style/Widget.AtmaRaksha.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Guardian Journey Tracking &amp; Check-In"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/poppins_bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Keep guardians informed of your ETA and confirm safe arrival."
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/poppins" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_share_journey"
+                            style="@style/Widget.AtmaRaksha.Button.Outlined"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:minHeight="44dp"
+                            android:text="Share Journey ETA"
+                            android:textSize="12sp" />
+
+                        <Button
+                            android:id="@+id/btn_checkin_arrived"
+                            style="@style/Widget.AtmaRaksha.Button.Primary"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="@color/color_route_safe"
+                            android:minHeight="44dp"
+                            android:text="I've Arrived Safely"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Prototype Model Transparency Card -->
+            <androidx.cardview.widget.CardView
+                style="@style/Widget.AtmaRaksha.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_pill_button_lavender"
+                        android:paddingStart="8dp"
+                        android:paddingTop="2dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="2dp"
+                        android:text="PROTOTYPE SAFETY MODEL"
+                        android:textColor="@color/brand_purple"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Route safety metrics are calculated from municipal streetlight infrastructure, open 24/7 business hours, and police station proximity benchmarks. External Google Directions API keys can be configured for live traffic overlays."
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        app:fontFamily="@font/poppins" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Big Bottom Button: "Start Safe Navigation" matching SheRoute reference screenshot -->
+            <Button
+                android:id="@+id/btn_start_safe_navigation"
+                style="@style/Widget.AtmaRaksha.Button.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_gradient_pink_purple"
+                android:minHeight="52dp"
+                android:text="Start Safe Navigation"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/poppins_bold" />
+
+            <Button
+                android:id="@+id/btn_monitor_route_journey"
+                style="@style/Widget.AtmaRaksha.Button.Outlined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:minHeight="48dp"
+                android:text="🛡️ Start Protected Journey Monitoring"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/poppins_bold" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Navigation Bar -->
+    <include
+        android:id="@+id/bottom_nav_include"
+        layout="@layout/layout_bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

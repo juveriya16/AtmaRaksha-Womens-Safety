@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="100dp">
+
+    <EditText
+        android:id="@+id/idEdtSource"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="Source"
+        android:padding="8dp" />
+
+    <!--edit text for our destination location-->
+    <EditText
+        android:id="@+id/idEdtDestination"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="Destination"
+        android:padding="8dp" />
+
+    <!--button to draw route on maps-->
+    <Button
+        android:id="@+id/idBtnTrack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="#2492C3"
+        android:padding="8dp"
+        android:text="Show Track"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+</LinearLayout>

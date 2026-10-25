@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.AtmaRaksha.Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_rec_icon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/bg_circle_lavender"
+                android:padding="6dp"
+                android:src="@drawable/ic_microphone"
+                app:tint="@color/brand_pink" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="12dp"
+                android:layout_toStartOf="@+id/btn_rec_delete"
+                android:layout_toEndOf="@+id/iv_rec_icon"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_rec_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="middle"
+                    android:singleLine="true"
+                    android:text="AudioEvidence_20261025.m4a"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/poppins_bold" />
+
+                <TextView
+                    android:id="@+id/tv_rec_meta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="25 Oct 2026 • 00:42 • 180 KB"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    app:fontFamily="@font/poppins" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/btn_rec_delete"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="6dp"
+                android:src="@android:drawable/ic_menu_delete"
+                app:tint="@color/color_sos_red" />
+        </RelativeLayout>
+
+        <!-- Player controls row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_rec_play"
+                style="@style/Widget.AtmaRaksha.Button.Outlined"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:minHeight="36dp"
+                android:padding="0dp"
+                android:text="▶ Play Audio"
+                android:textColor="@color/brand_purple"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_rec_share"
+                style="@style/Widget.AtmaRaksha.Button.Outlined"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:minHeight="36dp"
+                android:padding="0dp"
+                android:text="↗ Secure Share"
+                android:textColor="@color/brand_pink"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Flashing">
+
+    <ImageView
+        android:id="@+id/imageactivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
+    <!-- Overlay Controls -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#33000000"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="28dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🚨 EMERGENCY ALARM ACTIVE"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Maximum volume siren and deterrence strobe light active to draw immediate public attention."
+            android:textColor="#EEEEEE"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_stop_alarm"
+            style="@style/Widget.AtmaRaksha.Button.Primary"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/bg_pill_button_purple"
+            android:paddingStart="36dp"
+            android:paddingEnd="36dp"
+            android:text="STOP ALARM &amp; CLOSE"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F0818"
+    android:fitsSystemWindows="true">
+
+    <!-- Top Status Bar & Simulated Decoy Banner -->
+    <LinearLayout
+        android:id="@+id/banner_decoy_notice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#221232"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp">
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_shield_check"
+            app:tint="@color/brand_pink" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:letterSpacing="0.06"
+            android:text="ATMARAKSHA SAFETY DECOY • SIMULATED CALL"
+            android:textColor="@color/brand_lavender"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/poppins_bold" />
+    </LinearLayout>
+
+    <!-- Caller Information Section -->
+    <LinearLayout
+        android:id="@+id/layout_caller_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/banner_decoy_notice"
+        android:layout_marginTop="36dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!-- Caller Avatar -->
+        <FrameLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/bg_sos_ring"
+            android:padding="8dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_sos_circle">
+
+                <TextView
+                    android:id="@+id/tv_call_avatar_initials"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="M"
+                    android:textColor="@color/white"
+                    android:textSize="36sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/poppins_bold" />
+            </FrameLayout>
+        </FrameLayout>
+
+        <!-- Caller Name -->
+        <TextView
+            android:id="@+id/tv_caller_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="Mom"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/poppins_bold" />
+
+        <!-- Caller Phone Number -->
+        <TextView
+            android:id="@+id/tv_caller_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="+91 98765 43210"
+            android:textColor="@color/night_text_secondary"
+            android:textSize="14sp"
+            app:fontFamily="@font/poppins" />
+
+        <!-- Call Status / Timer Text -->
+        <TextView
+            android:id="@+id/tv_call_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_pill_button_lavender"
+            android:paddingStart="16dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="5dp"
+            android:text="Incoming Call..."
+            android:textColor="@color/brand_purple"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/poppins_medium" />
+    </LinearLayout>
+
+    <!-- STATE 1: Incoming Call Actions (Answer / Decline) -->
+    <LinearLayout
+        android:id="@+id/layout_incoming_controls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="54dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="36dp"
+        android:paddingEnd="36dp"
+        android:weightSum="2">
+
+        <!-- Decline Call Button -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/btn_decline_call"
+                android:layout_width="68dp"
+                android:layout_height="68dp"
+                android:background="@drawable/bg_call_decline"
+                android:contentDescription="Decline Call"
+                android:elevation="6dp"
+                android:src="@drawable/ic_call_end"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Decline"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:fontFamily="@font/poppins_medium" />
+        </LinearLayout>
+
+        <!-- Answer Call Button -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/btn_answer_call"
+                android:layout_width="68dp"
+                android:layout_height="68dp"
+                android:background="@drawable/bg_call_accept"
+                android:contentDescription="Answer Call"
+                android:elevation="6dp"
+                android:src="@drawable/ic_phone_dial"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Answer"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:fontFamily="@font/poppins_medium" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- STATE 2: Active Connected Call Controls (Hidden by default, shown on Answer) -->
+    <LinearLayout
+        android:id="@+id/layout_active_call_controls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="44dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- In-Call Functional Decoy Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp">
+
+            <!-- Mute Button -->
+            <LinearLayout
+                android:id="@+id/btn_call_mute"
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/iv_call_mute_icon"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/bg_circle_lavender"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_mic_mute"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:id="@+id/tv_call_mute_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Mute"
+                    android:textColor="@color/night_text_secondary"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/poppins" />
+            </LinearLayout>
+
+            <!-- Keypad Button -->
+            <LinearLayout
+                android:id="@+id/btn_call_keypad"
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/bg_circle_lavender"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_keypad"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Keypad"
+                    android:textColor="@color/night_text_secondary"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/poppins" />
+            </LinearLayout>
+
+            <!-- Speaker Button -->
+            <LinearLayout
+                android:id="@+id/btn_call_speaker"
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/iv_call_speaker_icon"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/bg_circle_lavender"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_speaker"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:id="@+id/tv_call_speaker_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Speaker"
+                    android:textColor="@color/night_text_secondary"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/poppins" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Red End Call Button -->
+        <ImageButton
+            android:id="@+id/btn_end_call"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/bg_call_decline"
+            android:contentDescription="End Call"
+            android:elevation="6dp"
+            android:src="@drawable/ic_call_end"
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="End Call"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/poppins_medium" />
+    </LinearLayout>
+
+</RelativeLayout>

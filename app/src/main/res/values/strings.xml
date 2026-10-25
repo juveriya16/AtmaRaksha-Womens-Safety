@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">AtmaRaksha</string>
+    <string name="title_activity_saving_activity">saving_activity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="setting">Settings</string>
+    <string name="instruction">Instructions</string>
+    <string name="news">News</string>
+    <string name="choose_buttons">Detect Spy</string>
+    <string name="instructions">Instructions</string>
+    <string name="settings">Settings</string>
+    <string name="textwarn">Warning to accept permission</string>
+    
+
+    <!-- Safety Feature Labels -->
+    <string name="journey_monitoring">Daily Journey Monitoring</string>
+    <string name="voice_activated_sos">Voice-Activated SOS</string>
+    <string name="offline_emergency">Offline Safety Shield</string>
+    <string name="safe_route_nav">Smart Safe-Route Navigation</string>
+    <string name="live_nearby_help">Live Nearby Safety Services</string>
+    <string name="community_reports">Community Safety Reports</string>
+    <string name="private_evidence_recording">Private Evidence Recorder</string>
+    <string name="discreet_emergency_mode">Discreet Emergency Mode</string>
+    <string name="safety_history_reports">Safety History &amp; Reports</string>
+</resources>

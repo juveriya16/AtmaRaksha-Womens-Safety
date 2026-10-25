@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface_background"
+    android:fitsSystemWindows="true">
+
+    <!-- Scrollable Content Area -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_journey_monitoring"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingBottom="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Top Header Banner -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_header_gradient"
+                android:paddingStart="20dp"
+                android:paddingTop="28dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="22dp">
+
+                <ImageView
+                    android:id="@+id/btn_back_journey"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_arrow_back"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:id="@+id/tv_header_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="Daily Journey Monitoring"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/poppins_bold" />
+
+                <TextView
+                    android:id="@+id/tv_header_subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_header_title"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="3dp"
+                    android:text="Proactive check-ins &amp; trusted-contact protection"
+                    android:textColor="@color/brand_lavender"
+                    android:textSize="11sp"
+                    app:fontFamily="@font/poppins" />
+
+                <ImageView
+                    android:id="@+id/btn_journey_history_shortcut"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_alignParentEnd="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_nav_activity"
+                    app:tint="@color/white" />
+            </RelativeLayout>
+
+            <!-- ================= VIEW 1: SETUP JOURNEY VIEW ================= -->
+            <LinearLayout
+                android:id="@+id/layout_journey_setup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:visibility="visible">
+
+                <!-- 1. Destination & Origin Card -->
+                <androidx.cardview.widget.CardView
+                    style="@style/Widget.AtmaRaksha.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📍 Route &amp; Destination"
+                            android:textColor="@color/brand_purple"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/poppins_bold" />
+
+                        <!-- Origin Input -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/bg_input_box"
+                            android:gravity="center_vertical"
+                            android:minHeight="44dp"
+                            android:orientation="horizontal"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp">
+
+                            <View
+                                android:layout_width="8dp"
+                                android:layout_height="8dp"
+                                android:background="@drawable/bg_pill_button_pink" />
+
+                            <EditText
+                                android:id="@+id/et_setup_origin"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:background="@null"
+                                android:hint="Origin: Current GPS Location"
+                                android:textColor="@color/text_primary"
+                                android:textColorHint="@color/text_secondary"
+                                android:textSize="13sp"
+                                app:fontFamily="@font/poppins_medium" />
+                        </LinearLayout>
+
+                        <!-- Destination Input -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/bg_input_box"
+                            android:gravity="center_vertical"
+                            android:minHeight="44dp"
+                            android:orientation="horizontal"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp">
+
+                            <View
+                                android:layout_width="8dp"
+                                android:layout_height="8dp"
+                                android:background="@drawable/bg_pill_button_purple" />
+
+                            <EditText
+                                android:id="@+id/et_setup_destination"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:background="@null"
+                                android:hint="Enter Destination (e.g. Home, Office, Metro)"
+                                android:textColor="@color/text_primary"
+                                android:textColorHint="@color/text_secondary"
+                                android:textSize="13sp"
+                                android:textStyle="bold"
+                                app:fontFamily="@font/poppins_bold" />
+                        </LinearLayout>
+
+                        <!-- Quick Destination Chips -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/chip_quick_home"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_pill_button_lavender"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:paddingStart="10dp"
+                                android:paddingTop="5dp"
+                                android:paddingEnd="10dp"
+                                android:paddingBottom="5dp"
+                                android:text="🏠 Home"
+                                android:textColor="@color/brand_purple"
+                                android:textSize="11sp"
+                                app:fontFamily="@font/poppins_medium" />
+
+                            <TextView
+                                android:id="@+id/chip_quick_office"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:background="@drawable/bg_input_box"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:paddingStart="10dp"
+                                android:paddingTop="5dp"
+                                android:paddingEnd="10dp"
+                                android:paddingBottom="5dp"
+                                android:text="🏢 Office"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="11sp"
+                                app:fontFamily="@font/poppins" />
+
+                            <TextView
+                                android:id="@+id/chip_quick_metro"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:background="@drawable/bg_input_box"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:paddingStart="10dp"
+                                android:paddingTop="5dp"
+                                android:paddingEnd="10dp"
+                                android:paddingBottom="5dp"
+                                android:text="🚇 Metro Station"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="11sp"
+                                app:fontFamily="@font/poppins" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- 2. ETA & Safety Check-In Frequency -->
+                <androidx.cardview.widget.CardView
+                    style="@style/Widget.AtmaRaksha.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="⏱️ Expected Arrival &amp; Check-In Timer"
+                            android:textColor="@color/brand_purple"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/poppins_bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Select expected trip duration:"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp"
+                            app:fontFamily="@font/poppins" />
+
+                        <!-- Trip Duration Chips -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/chip_eta_15"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_pill_button_lavender"
+                                android:gravity="center"
+                                android:paddingTop="6dp"
+                                android:paddingBottom="6dp"
+                                android:text="15 min"
+                                android:textColor="@color/brand_purple"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/chip_eta_30"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="6dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_pill_button_pink"
+                                android:gravity="center"
+                                android:paddingTop="6dp"
+                                android:paddingBottom="6dp"
+                                android:text="30 min"
+                                android:textColor="@color/white"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/chip_eta_45"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="6dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_pill_button_lavender"
+                                android:gravity="center"
+                                android:paddingTop="6dp"
+                                android:paddingBottom="6dp"
+                                android:text="45 min"
+                                android:textColor="@color/brand_purple"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/chip_eta_60"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="6dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_pill_button_lavender"
+                                android:gravity="center"
+                                android:paddingTop="6dp"
+                                android:paddingBottom="6dp"
+                                android:text="60 min"
+                                android:textColor="@color/brand_purple"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- Check-In Frequency Selection -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:text="Safety Check-In Frequency:"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/poppins_bold" />
+
+                        <RadioGroup
+                            android:id="@+id/rg_checkin_interval"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_interval_10"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Every 10m"
+                                android:textSize="11sp" />
+
+                            <RadioButton
+                                android:id="@+id/rb_interval_15"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="true"
+                                android:text="Every 15m"
+                                android:textSize="11sp" />
+
+                            <RadioButton
+                                android:id="@+id/rb_interval_20"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Every 20m"
+                                android:textSize="11sp" />
+                        </RadioGroup>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- 3. Trusted Contacts Selection -->
+                <androidx.cardview.widget.CardView
+                    style="@style/Widget.AtmaRaksha.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="👥 Select Monitoring Guardians"
+                                android:textColor="@color/brand_purple"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                app:fontFamily="@font/poppins_bold" />
+
+                            <TextView
+                                android:id="@+id/btn_manage_contacts"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:text="Edit Circle →"
+                                android:textColor="@color/brand_pink"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Only contacts checked below will receive trip notifications &amp; escalation alerts."
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp"
+                            app:fontFamily="@font/poppins" />
+
+                        <!-- Dynamic Contacts List Container -->
+                        <LinearLayout
+                            android:id="@+id/container_contacts_checkboxes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- 4. Explicit Consent & Precautionary Escalation Disclosure -->
+                <androidx.cardview.widget.CardView
+                    style="@style/Widget.AtmaRaksha.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:id="@+id/cb_journey_consent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="6dp"
+                                android:text="I explicitly consent to share my live location with selected guardians for the duration of this trip."
+                                android:textColor="@color/text_primary"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                app:fontFamily="@font/poppins_medium" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/bg_pill_button_lavender"
+                            android:padding="10dp"
+                            android:text="ℹ️ Escalation Notice: If a check-in is missed, AtmaRaksha displays a high-priority alert and begins a 60-second grace period. If no response is received, a precautionary notification is dispatched to selected guardians. Missed check-ins do not prove an emergency."
+                            android:textColor="@color/brand_purple"
+                            android:textSize="11sp"
+                            app:fontFamily="@font/poppins" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Start Protected Journey Button -->
+                <Button
+                    android:id="@+id/btn_start_protected_journey"
+                    style="@style/Widget.AtmaRaksha.Button.Primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/bg_gradient_pink_purple"
+                    android:minHeight="52dp"
+                    android:text="Start Protected Journey"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/poppins_bold" />
+
+            </LinearLayout>
+
+
+            <!-- ================= VIEW 2: ACTIVE LIVE TRACKING VIEW ================= -->
+            <LinearLayout
+                android:id="@+id/layout_journey_active"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:visibility="gone">
+
+                <!-- Dynamic Journey Status Pill Banner -->
+                <LinearLayout
+                    android:id="@+id/banner_journey_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/bg_pill_button_lavender"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp">
+
+                    <View
+                        android:id="@+id/dot_status_indicator"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:background="@drawable/bg_pill_button_pink"
+                        android:backgroundTint="@color/color_success" />
+
+                    <TextView
+                        android:id="@+id/tv_active_status_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="STATUS: ACTIVE • LIVE LOCATION SHARING ON"
+                        android:textColor="@color/brand_purple"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/poppins_bold" />
+                </LinearLayout>
+
+                <!-- Interactive Embedded Google Map Preview -->
+                <androidx.cardview.widget.CardView
+                    style="@style/Widget.AtmaRaksha.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_marginTop="12dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <org.osmdroid.views.MapView
+                            android:id="@+id/mapview_journey_active"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_margin="6dp"
+                            android:background="#A0FFFFFF"
+                            android:paddingStart="6dp"
+                            android:paddingTop="2dp"
+                            android:paddingEnd="6dp"
+                            android:paddingBottom="2dp"
+                            android:text="© OpenStreetMap contributors"
+                            android:textColor="#333333"
+                            android:textSize="8sp" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Trip Metrics & Check-In Countdown Card -->
+                <androidx.cardview.widget.CardView
+                    style="@style/Widget.AtmaRaksha.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/tv_active_trip_summary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Origin ➔ Destination"
+                            android:textColor="@color/text_primary"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/poppins_bold" />
+
+                        <!-- 2-Column Timer Row -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:orientation="horizontal">
+
+                            <!-- Check-in Countdown Box -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_pill_button_lavender"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="12dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="NEXT CHECK-IN"
+                                    android:textColor="@color/brand_purple"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tv_checkin_timer_display"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="14:59"
+                                    android:textColor="@color/brand_purple"
+                                    android:textSize="22sp"
+                                    android:textStyle="bold"
+                                    app:fontFamily="@font/poppins_bold" />
+                            </LinearLayout>
+
+                            <!-- Estimated Arrival Time Box -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_pill_button_pink"
+                                android:backgroundTint="#FFEAF2"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="12dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="ESTIMATED ARRIVAL"
+                                    android:textColor="@color/brand_pink"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tv_eta_countdown_display"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="28 min left"
+                                    android:textColor="@color/brand_pink"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    app:fontFamily="@font/poppins_bold" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Guardians Informed List -->
+                        <TextView
+                            android:id="@+id/tv_guardians_monitoring_summary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="👥 Monitored by: Primary Guardian"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+
+                        <!-- Battery Protection Active Badge -->
+                        <LinearLayout
+                            android:id="@+id/layout_battery_shield_status"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/ic_battery_alert"
+                                app:tint="@color/brand_purple" />
+
+                            <TextView
+                                android:id="@+id/tv_battery_shield_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="6dp"
+                                android:text="Battery Shield Active (20%, 15%, 10% guardian alerts)"
+                                android:textColor="@color/brand_purple"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                app:fontFamily="@font/poppins_medium" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Action Buttons: "I'm Safe", "Extend Timer", "End Journey", "Emergency SOS" -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:orientation="horizontal">
+
+                    <!-- I'm Safe Button (Green) -->
+                    <Button
+                        android:id="@+id/btn_action_im_safe"
+                        style="@style/Widget.AtmaRaksha.Button.Primary"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/color_success"
+                        android:minHeight="48dp"
+                        android:text="I'm Safe ✓"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <!-- Extend Timer Button -->
+                    <Button
+                        android:id="@+id/btn_action_extend_timer"
+                        style="@style/Widget.AtmaRaksha.Button.Outlined"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:minHeight="48dp"
+                        android:text="+15 Min"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <!-- End Journey Button -->
+                    <Button
+                        android:id="@+id/btn_action_end_journey"
+                        style="@style/Widget.AtmaRaksha.Button.Outlined"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="48dp"
+                        android:text="End Journey"
+                        android:textSize="13sp" />
+
+                    <!-- Emergency SOS Button (Red) -->
+                    <Button
+                        android:id="@+id/btn_action_emergency_sos"
+                        style="@style/Widget.AtmaRaksha.Button.Primary"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/color_sos_red"
+                        android:minHeight="48dp"
+                        android:text="Emergency SOS"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Stop Live Sharing Button -->
+                <TextView
+                    android:id="@+id/btn_stop_live_sharing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="6dp"
+                    android:text="🛑 Stop Live Location Sharing"
+                    android:textColor="@color/brand_pink"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

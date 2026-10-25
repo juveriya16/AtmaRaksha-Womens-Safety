@@ -1,0 +1,23 @@
+// Top-level build file
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        // Updated for native Java 21 and D8 compatibility
+        classpath 'com.android.tools.build:gradle:8.13.2'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    buildDir = new File("C:/Users/Juveriya Khan/atmaraksha_build/${project.name}")
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
