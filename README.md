@@ -72,38 +72,37 @@ Make sure shared files are accessible to anyone with the link before submitting.
 ## 🖼️ Screenshots
 
 ### Welcome Screen
-![Welcome Screen](screenshots/welcome-screen.jpeg)
+<img src="screenshots/welcome-screen.jpeg" alt="Welcome Screen" width="300"/>
 
 ### Login Screen
-![Login Screen](screenshots/login-screen.jpeg)
+<img src="screenshots/login-screen.jpeg" alt="Login Screen" width="300"/>
 
 ### Home Dashboard
-![Home Dashboard](screenshots/home-dashboard.jpeg)
+<img src="screenshots/home-dashboard.jpeg" alt="Home Dashboard" width="300"/>
 
 ### Safety Services
-![Safety Services](screenshots/safety-services.jpeg)
+<img src="screenshots/safety-services.jpeg" alt="Safety Services" width="300"/>
 
 ### Safety History
-![Safety History](screenshots/safety-history.jpeg)
+<img src="screenshots/safety-history.jpeg" alt="Safety History" width="300"/>
 
 ### Safe Routes Map
-![Safe Routes Map](screenshots/safe-routes-map.jpeg)
+<img src="screenshots/safe-routes-map.jpeg" alt="Safe Routes Map" width="300"/>
 
 ### Profile and Settings
-![Profile and Settings](screenshots/profile-settings.png)
+<img src="screenshots/profile-settings.png" alt="Profile and Settings" width="300"/>
 
 ### Fake Incoming Call
-![Fake Incoming Call](screenshots/fake-incoming-call.jpeg)
+<img src="screenshots/fake-incoming-call.jpeg" alt="Fake Incoming Call" width="300"/>
 
 ### Trusted Emergency Contacts
-![Trusted Emergency Contacts](screenshots/trusted-emergency-contacts.png)
+<img src="screenshots/trusted-emergency-contacts.png" alt="Trusted Emergency Contacts" width="300"/>
 
 ### Community Safety Reports
-![Community Safety Reports](screenshots/community-safety-reports.jpeg)
+<img src="screenshots/community-safety-reports.jpeg" alt="Community Safety Reports" width="300"/>
 
 ### Emergency SOS Alert
-![Emergency SOS Alert](screenshots/emergency-sos-alert.jpeg)
-
+<img src="screenshots/emergency-sos-alert.jpeg" alt="Emergency SOS Alert" width="300"/>
 
 ## 🏗️ Project Structure
 
