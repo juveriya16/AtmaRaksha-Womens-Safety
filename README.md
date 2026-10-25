@@ -71,25 +71,39 @@ Make sure shared files are accessible to anyone with the link before submitting.
 
 ## 🖼️ Screenshots
 
-Add screenshots of your actual application to a `screenshots` folder in the repository.
+### Welcome Screen
+![Welcome Screen](screenshots/welcome-screen.jpeg)
 
-Suggested screenshots:
+### Login Screen
+![Login Screen](screenshots/login-screen.jpeg)
 
-1. Login and Welcome Screen
-2. Main Dashboard
-3. Emergency SOS
-4. Trusted Contacts
-5. Nearby Help and Safer Routes
-6. Journey Monitoring
-7. Fake Incoming Call
-8. Discreet Mode
-9. Safety History
+### Home Dashboard
+![Home Dashboard](screenshots/home-dashboard.jpeg)
 
-Example:
+### Safety Services
+![Safety Services](screenshots/safety-services.jpeg)
 
-`![AtmaRaksha Home Screen](screenshots/home.png)`
+### Safety History
+![Safety History](screenshots/safety-history.jpeg)
 
-Replace the example path with your actual screenshot filename.
+### Safe Routes Map
+![Safe Routes Map](screenshots/safe-routes-map.jpeg)
+
+### Profile and Settings
+![Profile and Settings](screenshots/profile-settings.png)
+
+### Fake Incoming Call
+![Fake Incoming Call](screenshots/fake-incoming-call.jpeg)
+
+### Trusted Emergency Contacts
+![Trusted Emergency Contacts](screenshots/trusted-emergency-contacts.png)
+
+### Community Safety Reports
+![Community Safety Reports](screenshots/community-safety-reports.jpeg)
+
+### Emergency SOS Alert
+![Emergency SOS Alert](screenshots/emergency-sos-alert.jpeg)
+
 
 ## 🏗️ Project Structure
 
